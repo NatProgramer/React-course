@@ -1,0 +1,24 @@
+:root {
+	background: #333;
+	color: #fff;
+	font-family: Roboto;
+}
+
+button {
+	padding: 20px 5px;
+}
+
+p,
+button {
+	font-size: 1.2rem;
+}
+
+button {
+	padding: 8px 16px;
+	border-radius: 2px;
+	border: none;
+	outline: none;
+	background-color: #29b573;
+	color: #fff;
+	border: solid #fff 0.5px;
+}

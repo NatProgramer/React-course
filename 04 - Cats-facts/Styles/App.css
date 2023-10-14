@@ -1,0 +1,22 @@
+main {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	gap: 15px;
+}
+
+img {
+	max-width: 400px;
+	max-height: 430px;
+	border-radius: 5px;
+}
+
+h1 {
+	align-items: center;
+}
+
+button:hover {
+	transition: background 150ms;
+	background: #217a4f;
+}
