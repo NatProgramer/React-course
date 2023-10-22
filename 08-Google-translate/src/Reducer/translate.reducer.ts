@@ -1,61 +1,53 @@
-export interface TranslateState {
-  fromText: string
-  toText: string
-  fromLenguaje: string
-  toLenguaje: string
-  loading: boolean
-}
+import { type TranslatePayload, type TranslateState } from '../types'
 
 export const initialState: TranslateState = {
+  fromLenguaje: 'auto',
+  toLenguaje: 'en',
   fromText: '',
-  toLenguaje: '',
-  fromLenguaje: '',
-  toText: '',
+  result: '',
   loading: false
 }
 
-type TranslatePayload =
-| { payload: 'SET_FROM_TEXT', newFromText: string }
-| { payload: 'SET_TO_TEXT', newToText: string }
-| { payload: 'SET_FROM_LENGUAJE', newFromLenguaje: string }
-| { payload: 'SET_TO_LENGUAJE', newToLenguaje: string }
-
 export const reducer = (state: TranslateState, action: TranslatePayload): TranslateState => {
-  const { payload } = action
+  const { type } = action
 
-  if (payload === 'SET_FROM_TEXT') {
-    const { newFromText } = action
+  if (type === 'SET_FROM_TEXT') {
+    const { payload } = action
     return {
       ...state,
-      fromText: newFromText
+      fromText: payload
     }
   }
 
-  if (payload === 'SET_TO_TEXT') {
-    const { newToText } = action
+  if (type === 'SET_FROM_LENGUAJE') {
+    const { payload } = action
     return {
       ...state,
-      toText: newToText
+      fromLenguaje: payload
     }
   }
 
-  if (payload === 'SET_FROM_LENGUAJE') {
-    const { newFromLenguaje } = action
+  if (type === 'SET_TO_LENGUAJE') {
+    const { payload } = action
     return {
       ...state,
-      fromLenguaje: newFromLenguaje
+      toLenguaje: payload
     }
   }
 
-  if (payload === 'SET_TO_LENGUAJE') {
-    const { newToLenguaje } = action
+  if (type === 'SET_RESULT') {
     return {
-      ...state,
-      toLenguaje: newToLenguaje
+      ...state
     }
   }
 
-  return {
-    ...state
+  if (type === 'INTERCHANGE_LENGUAGES') {
+    return {
+      ...state,
+      toLenguaje: state.fromLenguaje,
+      fromLenguaje: state.toLenguaje
+    }
   }
+
+  return state
 }
