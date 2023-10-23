@@ -1,8 +1,10 @@
 import { type SUPPORTED_LENGUAGES, type AUTO_LENGUAGE } from './constants'
 
-export type supportedlenguages = keyof typeof SUPPORTED_LENGUAGES
+export type SupportedLenguages = keyof typeof SUPPORTED_LENGUAGES
 
-export type automatic = typeof AUTO_LENGUAGE
+export type AutoLenguage = typeof AUTO_LENGUAGE
+
+export type fromLenguages = SupportedLenguages | AutoLenguage
 
 export interface TranslateState {
   fromLenguaje: string
