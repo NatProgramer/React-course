@@ -1,30 +1,46 @@
 import { useReducer } from 'react'
 import { initialState, reducer } from '../Reducer/translate.reducer'
+import { type FromLanguages, type Languages } from '../types'
 
 export const useTranslate = () => {
-  const [state, dispatch] = useReducer(reducer, initialState)
+  const [{
+    toLenguaje,
+    fromLenguaje,
+    fromText,
+    loading,
+    result
+  }, dispatch] = useReducer(reducer, initialState)
 
-  const handleFromText = (newFromText: string) => {
-    dispatch({ type: 'SET_FROM_TEXT', payload: newFromText })
+  const setFromText = (payload: string) => {
+    dispatch({ type: 'SET_FROM_TEXT', payload })
   }
 
-  const handleToText = (newToText: string) => {
-    dispatch({ type: 'SET_TO_TEXT', payload: newToText })
+  const setResult = (payload: string) => {
+    dispatch({ type: 'SET_RESULT', payload })
   }
 
-  const handleFromLenguage = (newFromLenguaje: string) => {
-    dispatch({ type: 'SET_FROM_LENGUAJE', payload: newFromLenguaje })
+  const setFromLenguage = (payload: FromLanguages) => {
+    dispatch({ type: 'SET_FROM_LENGUAJE', payload })
   }
 
-  const handleToLenguage = (newToLenguaje: string) => {
-    dispatch({ type: 'SET_TO_LENGUAJE', payload: newToLenguaje })
+  const setToLenguage = (payload: Languages) => {
+    dispatch({ type: 'SET_TO_LENGUAJE', payload })
+  }
+
+  const interChangeLanguages = () => {
+    dispatch({ type: 'INTERCHANGE_LENGUAGES' })
   }
 
   return {
-    state,
-    handleFromText,
-    handleToText,
-    handleToLenguage,
-    handleFromLenguage
+    toLenguaje,
+    fromLenguaje,
+    fromText,
+    loading,
+    result,
+    setFromText,
+    setResult,
+    setToLenguage,
+    setFromLenguage,
+    interChangeLanguages
   }
 }

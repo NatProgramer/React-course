@@ -42,6 +42,7 @@ export const reducer = (state: TranslateState, action: TranslatePayload): Transl
   }
 
   if (type === 'INTERCHANGE_LENGUAGES') {
+    if (state.fromLenguaje === 'auto') return state
     return {
       ...state,
       toLenguaje: state.fromLenguaje,
