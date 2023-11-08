@@ -9,6 +9,7 @@ export default function SelectLenguage ({ onChange }: Props) {
   const handleChange = (e: any) => {
     onChange(e.target.value)
   }
+
   return (
     <Form.Select onChange={handleChange} aria-label='Select a language'>
       {Object.entries(SUPPORTED_LENGUAGES).map(([key, lang]) => (
