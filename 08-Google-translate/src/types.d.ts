@@ -7,8 +7,8 @@ export type AutoLanguage = typeof AUTO_LENGUAGE
 export type FromLanguages = Languages | AutoLanguage
 
 export interface TranslateState {
-  fromLenguaje: string
-  toLenguaje: string
+  fromLenguaje: FromLanguages
+  toLenguaje: Languages
   fromText: string
   result: string
   loading: boolean

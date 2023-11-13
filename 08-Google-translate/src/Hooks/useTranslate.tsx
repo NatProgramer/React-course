@@ -20,10 +20,12 @@ export const useTranslate = () => {
   }
 
   const setFromLenguage = (payload: FromLanguages) => {
+    if (payload === toLenguaje) return
     dispatch({ type: 'SET_FROM_LENGUAJE', payload })
   }
 
   const setToLenguage = (payload: Languages) => {
+    if (payload === fromLenguaje) return
     dispatch({ type: 'SET_TO_LENGUAJE', payload })
   }
 
