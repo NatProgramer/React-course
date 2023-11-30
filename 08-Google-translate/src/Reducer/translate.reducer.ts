@@ -36,8 +36,10 @@ export const reducer = (state: TranslateState, action: TranslatePayload): Transl
   }
 
   if (type === 'SET_RESULT') {
+    const { payload } = action
     return {
-      ...state
+      ...state,
+      result: payload
     }
   }
 

@@ -9,10 +9,14 @@ import { FromLanguageInput, ToLanguageInput } from './Components/TextInputs'
 export default function App () {
   const {
     fromLenguaje,
+    fromText,
     toLenguaje,
+    result,
+    loading,
     interChangeLanguages,
     setFromLenguage,
-    setToLenguage
+    setToLenguage,
+    translate
   } = useTranslate()
 
   return (
@@ -28,7 +32,7 @@ export default function App () {
               onChange={setFromLenguage}
             />
 
-            <ToLanguageInput />
+            <ToLanguageInput onChange={translate} text={fromText} />
           </Stack>
         </Col>
 
@@ -46,7 +50,7 @@ export default function App () {
               onChange={setToLenguage}
             />
 
-            <FromLanguageInput />
+            <FromLanguageInput loading={loading} text={result} />
           </Stack>
         </Col>
       </Row>

@@ -33,12 +33,30 @@ export const useTranslate = () => {
     dispatch({ type: 'INTERCHANGE_LENGUAGES' })
   }
 
+  const translate = (text: string) => {
+    if (text === 'Hello' && toLenguaje === 'es') {
+      setResult('Hola')
+    } else if (text === 'She said no' && toLenguaje === 'es') {
+      setResult('Ella dijo no')
+    } else if (text === 'Before you run away' && toLenguaje === 'es') {
+      setResult('Antes de irte')
+    } else if (text === 'Hola' && toLenguaje === 'en') {
+      setResult('Hello')
+    } else if (text === 'Como anda' && toLenguaje === 'en') {
+      setResult('How are you?')
+    } else {
+      setResult('Error, try with the word "Hello"')
+    }
+    console.log(result)
+  }
+
   return {
     toLenguaje,
     fromLenguaje,
     fromText,
     loading,
     result,
+    translate,
     setFromText,
     setResult,
     setToLenguage,
