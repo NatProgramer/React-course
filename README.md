@@ -5,5 +5,5 @@ Repo del curso de react de midu
 
 ## Lista de proyectos
 
-[01 - Counter-UI][1]
-[02 - tic-tac-toe][2]
+[01 - Counter-UI]: [1]
+[02 - tic-tac-toe]: [2]
